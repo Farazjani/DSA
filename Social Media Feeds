@@ -1,0 +1,21 @@
+import heapq
+
+# Define posts as a list of tuples (priority, post content)
+posts = [
+    (5, "Post 1: Enjoying a sunny day at the beach!"),
+    (2, "Post 2: Just had a delicious lunch."),
+    (8, "Post 3: Celebrating a promotion at work!"),
+    (3, "Post 4: Started reading a new book."),
+    (7, "Post 5: Beautiful sunset today."),
+]
+
+# Convert the posts list to a max-heap
+# We use negative priorities because heapq is a min-heap by default
+max_heap = [(-priority, content) for priority, content in posts]
+heapq.heapify(max_heap)
+
+# Display feed posts in order of priority
+print("Social Media Feed:")
+while max_heap:
+    priority, content = heapq.heappop(max_heap)
+    print(content)
